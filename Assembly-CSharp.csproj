@@ -71,8 +71,10 @@
     <Compile Include="Assets/scripts/detect_normall_door.cs" />
     <Compile Include="Assets/scripts/CreatMish.cs" />
     <Compile Include="Assets/scripts/detect_on_z.cs" />
+    <Compile Include="Assets/8K Skybox Pack Free/Example Scenes/Script/RotateCamera.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets/8K Skybox Pack Free/ReadMe.txt" />
     <None Include="Assets/StarterAssets/Environment/Shaders/Built-in_RP/Triplanar.shader" />
     <None Include="Assets/StarterAssets/license.txt" />
     <None Include="Assets/StarterAssets/Environment/Shaders/Built-in_RP/ArmatureShader.shader" />
