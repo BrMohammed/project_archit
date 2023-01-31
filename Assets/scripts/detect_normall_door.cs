@@ -34,12 +34,19 @@ public class detect_normall_door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "PlayerArmature")
+        {
+            FindObjectOfType<AudioManager>().Play("open_normal");
+        }
             playerIsHere = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "PlayerArmature")
+        {
+            FindObjectOfType<AudioManager>().Play("open_normal");
             playerIsHere = false;
+        }
+            
     }
 }

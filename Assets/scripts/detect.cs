@@ -13,6 +13,7 @@ public class detect : MonoBehaviour
     public float movementSpeed = 0.001f;
 
     bool playerIsHere;
+    bool done = false;
 
     // Start is called before the first frame update
     void Start()
@@ -27,10 +28,10 @@ public class detect : MonoBehaviour
         {
             if (left_door.transform.localPosition.x > -maximumOpening)
             {
+                done = false;
                 left_door.transform.Translate(-movementSpeed * Time.deltaTime, 0f, 0f);
                 right_door.transform.Translate(movementSpeed * Time.deltaTime, 0f, 0f);
             }
-                
         }
         else
         {
@@ -48,12 +49,19 @@ public class detect : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "PlayerArmature")
+        {
             playerIsHere = true;
+            FindObjectOfType<AudioManager>().Play("open_slide");
+        }  
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "PlayerArmature")
+        {
+            FindObjectOfType<AudioManager>().Play("open_slide");
             playerIsHere = false;
+        }
+            
     }
 }

@@ -7,7 +7,7 @@ public class detect_on_z : MonoBehaviour
     public GameObject left_door;
     public GameObject right_door;
 
-    public float maximumOpening = 0.01152f;
+    public float maximumOpening = 0.0114f;
     public float maximumClosing = 0f;
 
     public float movementSpeed = 1f;
@@ -27,11 +27,9 @@ public class detect_on_z : MonoBehaviour
         {
             if (left_door.transform.localPosition.z > -maximumOpening)
             {
-
                 left_door.transform.Translate(0, 0f, -movementSpeed * Time.deltaTime);
                 right_door.transform.Translate(0, 0f, movementSpeed * Time.deltaTime);
             }
-
         }
         else
         {
@@ -49,12 +47,20 @@ public class detect_on_z : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.name == "PlayerArmature")
+        {
+            FindObjectOfType<AudioManager>().Play("open_slide");
             playerIsHere = true;
+        }
+            
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.name == "PlayerArmature")
+        {
+            FindObjectOfType<AudioManager>().Play("open_slide");
             playerIsHere = false;
+        }
+            
     }
 }

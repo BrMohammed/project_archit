@@ -72,6 +72,8 @@
     <Compile Include="Assets/scripts/CreatMish.cs" />
     <Compile Include="Assets/scripts/detect_on_z.cs" />
     <Compile Include="Assets/8K Skybox Pack Free/Example Scenes/Script/RotateCamera.cs" />
+    <Compile Include="Assets/scripts/Sound/AudioManager.cs" />
+    <Compile Include="Assets/scripts/Sound/Sound.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets/8K Skybox Pack Free/ReadMe.txt" />

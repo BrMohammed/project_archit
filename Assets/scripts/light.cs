@@ -21,6 +21,7 @@ public class light : MonoBehaviour
     {
         if (playerIsHere && Input.GetKeyUp("l") )
         {
+            FindObjectOfType<AudioManager>().Play("light");
             _light.SetActive(!_light.activeSelf);
         }
     }
