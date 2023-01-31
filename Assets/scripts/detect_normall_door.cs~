@@ -1,0 +1,55 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class detect_normall_door : MonoBehaviour
+{
+    public GameObject door;
+
+    public float maximumOpening = 90f;
+    public float maximumClosing = 0f;
+
+    public float movementSpeed = 0.001f;
+
+    bool playerIsHere;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        playerIsHere = false;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (playerIsHere)
+        {
+            if (door.transform.localRotation.y > -maximumOpening)
+            {
+                door.transform.Rotate(0f, -movementSpeed * Time.deltaTime, 0f);
+            }
+        }
+        //else
+        //{
+        //    if (door.transform.localPosition.x < 0)
+        //    {
+        //        door.transform.Translate(movementSpeed * Time.deltaTime, 0f, 0f);
+        //    }
+
+        //}
+
+
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.name == "PlayerArmature")
+            playerIsHere = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "PlayerArmature")
+            playerIsHere = false;
+    }
+}
